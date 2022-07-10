@@ -33,7 +33,7 @@ app.post('/community', async (req, res) => {
     try {
         const result = await db.collection('comments').insertOne(req.body)
         console.log('comment added')
-        response.redirect('/community')    
+        res.redirect('/community')    
     } catch(err) {
         console.log(err)
     }

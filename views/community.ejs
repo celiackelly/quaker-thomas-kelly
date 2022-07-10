@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Community</h1>
+            <p>Welcome. We're glad you're here.</p>
+            <p>Please write your thoughts to share with fellow readers and also read comments left by others.</p>
+
+            <h2>Comments</h2>
+            <ol class="comments">
+                <% for (let i = 0; i < comments.length; i++) {%>
+                    <li class="comment">
+                        <span><%= comment[i].name %></span>
+                        <!-- <span><%= comment[i].date %></span>
+                        <span><%= comment[i].time %></span> -->
+                        <p><%= comment[i].text %></p>
+                    </li>
+                <% } %>
+            </ol>
+        </section>
+        <section>
+            <form action="/community" method="POST">
+                <fieldset>
+                    <legend>Leave a Comment</legend>
+                    <label> Name
+                        <input type="text" name="name" required>
+                    </label>
+                    <label> Email (not published)
+                        <input type="email" name="email" required>
+                    </label>
+                    <label> Comment
+                        <textarea name="text"></textarea>
+                    </label>
+                    <label> Notify me of new comments to this post by email.
+                        <input type="checkbox" name="notifyMe">
+                    </label>
+                    <button>Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <script src="/main.js"></script>
+</body>
+</html>

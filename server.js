@@ -45,7 +45,7 @@ app.get('/community', async (req, res) => {
 app.post('/community', async (req, res) => {
     try {
         const result = await db.collection('comments').insertOne(req.body)
-        console.log('comment added')
+        console.log('comment added', req.body)
         res.redirect('/community')    
     } catch(err) {
         res.status(500).send({message: err.message})

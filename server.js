@@ -6,7 +6,6 @@ const PORT = process.env.PORT
 
 //Connect to database
 const {MongoClient, ObjectID} = require('mongodb')
-const { response } = require('express')
 let db, 
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'quaker-thomas-kelly'
@@ -38,8 +37,8 @@ app.get('/community', async (req, res) => {
         const data = await db.collection('comments').find().toArray()
         res.render('community.ejs', {comments: data})
     } catch(err) {
-        response.status(500).send({message: error.message})
-        console.log(error)
+        res.status(500).send({message: err.message})
+        console.log(err)
     }
 })
 
@@ -49,8 +48,8 @@ app.post('/community', async (req, res) => {
         console.log('comment added')
         res.redirect('/community')    
     } catch(err) {
-        response.status(500).send({message: error.message})
-        console.log(error)
+        res.status(500).send({message: err.message})
+        console.log(err)
     }
 })
 

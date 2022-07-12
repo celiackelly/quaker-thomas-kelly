@@ -44,6 +44,11 @@ app.get('/community', async (req, res) => {
 
 app.post('/community', async (req, res) => {
     try {
+        //add date of form submission, for inclusion in document 
+        req.body.date = Date()
+        //add whether 'notify me of responses by email' is checked or unchecked
+        req.body.notifyMe = req.body.notifyMe ? true : false
+
         const result = await db.collection('comments').insertOne(req.body)
         console.log('comment added', req.body)
         res.redirect('/community')    

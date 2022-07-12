@@ -29,14 +29,8 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
-app.post('/community', async (req, res) => {
-    try {
-        const result = await db.collection('comments').insertOne(req.body)
-        console.log('comment added')
-        res.redirect('/community')    
-    } catch(err) {
-        console.log(err)
-    }
+app.get('/', async (req, res) => {
+    res.render('index.ejs')
 })
 
 app.get('/community', async (req, res) => {
@@ -44,6 +38,19 @@ app.get('/community', async (req, res) => {
         const data = await db.collection('comments').find().toArray()
         res.render('community.ejs', {comments: data})
     } catch(err) {
-        console.log(err)
+        response.status(500).send({message: error.message})
+        console.log(error)
     }
 })
+
+app.post('/community', async (req, res) => {
+    try {
+        const result = await db.collection('comments').insertOne(req.body)
+        console.log('comment added')
+        res.redirect('/community')    
+    } catch(err) {
+        response.status(500).send({message: error.message})
+        console.log(error)
+    }
+})
+

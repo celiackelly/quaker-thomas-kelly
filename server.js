@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 require('dotenv').config()
+const path = require('path')
 const PORT = process.env.PORT
 
 //Connect to database
@@ -21,6 +22,7 @@ MongoClient.connect(dbConnectionStr)
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.static('public'))
+app.use(express.static('node_modules/bootstrap/dist/js'))
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
 

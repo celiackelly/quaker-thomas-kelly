@@ -20,34 +20,39 @@
                 <% for (let i = 0; i < comments.length; i++) {%>
                     <li class="comment">
                         <span><%= comments[i].name %></span>
-                        <p><%= comments[i].text %></p>
+                        <p><%= comments[i].comment %></p>
                     </li>
                 <% } %>
             </ul>
         </section>
         <section>
-            <form action="/community" method="POST">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                <fieldset>
-                    <legend>Leave a Comment</legend>
-                    <label> Name
-                        <input type="text" name="name" required>
-                    </label>
-                    <label> Email (not published)
-                        <input type="email" name="email" required>
-                    </label>
-                    <label> Comment
-                        <textarea name="text"></textarea>
-                    </label>
-                    <label> Notify me of new comments to this post by email.
-                        <input type="checkbox" name="notifyMe">
-                    </label>
-                    <button id="submit-comment-btn">Submit</button>
-                </fieldset>
-            </form>
+            <div class="container">
+                <form action="/community" method="POST">
+                    <fieldset>
+                        <legend>Leave a Comment</legend>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="name" id="nameInput" placeholder="Jane Doe" required>
+                            <label for="nameInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="emailInput" placeholder="example@example.com">
+                            <label for="emailInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3"> 
+                            <textarea class="form-control" placeholder="Leave a comment here" id="commentInput" name="comment" style="height: 100px"></textarea>
+                            <label for="commentInput">Comments</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="notify-me-input" name="notifyMe">
+                            <label class="form-check-label" for="notify-me-input">
+                                Notify me of new replies to this post by email. 
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" id="submit-comment-btn">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
         </section>
     </main>
     <script src="/js/main.js"></script>

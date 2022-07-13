@@ -4,9 +4,11 @@
 // Include any default variable overrides here (though functions won't be available)
 
 $primary: teal;
-$secondary: green;
-$dark: blue;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+
+.hero-section {
+    padding-top: 80px;
+}

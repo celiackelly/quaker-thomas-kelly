@@ -10,20 +10,47 @@
 </head>
 <body>
     <main>
-        <section class="bg-primary">
-            <h1>Community</h1>
-            <p lead>Welcome. We're glad you're here.</p>
-            <p>Please write your thoughts to share with fellow readers and also read comments left by others.</p>
+        <header>
+            <nav class="navbar navbar-expand-md bg-primary text-light py-3 fixed-top">
+                <div class="container">
+                    <a href="/" class="navbar-brand">Quaker Thomas Kelly</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><span class="navbar-toggler-icon"></span></button>
 
-            <h2>Comments</h2>
-            <ul class="comments">
-                <% for (let i = 0; i < comments.length; i++) {%>
-                    <li class="comment">
-                        <span><%= comments[i].name %></span>
-                        <p><%= comments[i].comment %></p>
-                    </li>
-                <% } %>
-            </ul>
+                    <div class="collapse navbar-collapse" id="navmenu">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/about" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/links" class="nav-link">Links</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/community" class="nav-link">Community</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Community</h1>
+                <p lead>Welcome. We're glad you're here.</p>
+                <p>Please write your thoughts to share with fellow readers and also read comments left by others.</p>
+    
+                <h2>Comments</h2>
+                <ul class="comments">
+                    <% for (let i = 0; i < comments.length; i++) {%>
+                        <li class="comment">
+                            <span><%= comments[i].name %></span>
+                            <p><%= comments[i].comment %></p>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
         </section>
         <section>
             <div class="container">
@@ -49,7 +76,7 @@
                                 Notify me of new replies to this post by email. 
                             </label>
                         </div>
-                        <button class="btn btn-primary" id="submit-comment-btn">Submit</button>
+                        <button class="btn btn-primary mb-3" id="submit-comment-btn">Submit</button>
                     </fieldset>
                 </form>
             </div>

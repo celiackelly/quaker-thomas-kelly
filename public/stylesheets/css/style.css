@@ -10722,5 +10722,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.hero-section {
+  padding-top: 60px;
+}
 
 /*# sourceMappingURL=style.css.map */
